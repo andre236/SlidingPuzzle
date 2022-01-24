@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BluePiece
   m_EditorClassIdentifier: 
   Sprite: {fileID: 21300000, guid: a1e9e87dce2e64f449b5d231949f7d7d, type: 3}
-  Font: {fileID: 12800000, guid: 34dcb35b73d696849b518d191e057f62, type: 3}
-  Color: {r: 1, g: 1, b: 1, a: 0}
+  Font: {fileID: 12800000, guid: cb4a7ef7519e21644a737df84395f11f, type: 3}
+  Color: {r: 1, g: 1, b: 1, a: 1}

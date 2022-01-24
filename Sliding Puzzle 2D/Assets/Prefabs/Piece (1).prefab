@@ -90,10 +90,12 @@ GameObject:
   - component: {fileID: 7052024368674450017}
   - component: {fileID: 7052024368674450047}
   - component: {fileID: 7052024368674450046}
+  - component: {fileID: -1493776797654790397}
   - component: {fileID: 4301470586064392975}
+  - component: {fileID: 4465143194650805739}
   m_Layer: 5
-  m_Name: BluePiece (1)
-  m_TagString: Untagged
+  m_Name: Piece (1)
+  m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,7 +118,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 103, y: 103}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7052024368674450047
 CanvasRenderer:
@@ -156,6 +158,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-1493776797654790397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7052024368674450016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7267ae1e5473148bf98e867d788664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4301470586064392975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,4 +182,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd1bc36577b4ce741ae98b6337c9fe15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PieceSettings: {fileID: 11400000, guid: 198aa2b6f3798b04693e56fc61fb41c8, type: 2}
+  _pieceSettings: {fileID: 11400000, guid: 198aa2b6f3798b04693e56fc61fb41c8, type: 2}
+--- !u!61 &4465143194650805739
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7052024368674450016}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 100, y: 100}
+  m_EdgeRadius: 0
