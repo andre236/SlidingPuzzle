@@ -6,9 +6,11 @@ public class Piece : MonoBehaviour
     [SerializeField]
     private bool _onRightPlace;
     [SerializeField]
+    private bool _canMove;
+    [SerializeField]
     private int _numberPiece;
 
-    private Image _currentPieceImage;
+    private SpriteRenderer _currentPieceImage;
     private Text _currentNumberTXT;
     private Color _currentTextColor;
 
@@ -21,9 +23,9 @@ public class Piece : MonoBehaviour
 
     private void Awake()
     {
-        _currentPieceImage = GetComponent<Image>();
-        _currentNumberTXT = transform.Find("NumberTXT").GetComponent<Text>();
-        _currentTextColor = transform.Find("NumberTXT").GetComponent<Text>().color;
+        _currentPieceImage = GetComponent<SpriteRenderer>();
+        _currentNumberTXT = transform.Find("Canvas").transform.Find("NumberTXT").GetComponent<Text>();
+        _currentTextColor = transform.Find("Canvas").transform.Find("NumberTXT").GetComponent<Text>().color;
     }
 
     private void OnEnable()
@@ -51,6 +53,11 @@ public class Piece : MonoBehaviour
         {
             _onRightPlace = false;
         }
+    }
+
+    public void ChangeCanMove()
+    {
+        _canMove = true;
     }
 
     void TradePositionWithSpace()

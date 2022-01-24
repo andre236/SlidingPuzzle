@@ -3,34 +3,28 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _piecePrefab;
-    [SerializeField]
-    private GameObject _spacePiecePrefab;
-    private GameObject _board;
+
+
 
     public GameObject[] PiecesOnBoard { get; private set; }
 
 
     void Awake()
     {
-        _board = GameObject.FindGameObjectWithTag("Board");
-        InstantiateAllPieces();
-        PiecesOnBoard = GameObject.FindGameObjectsWithTag("Piece");
+        
     }
 
     private void Start()
     {
-        RandomPositions();
     }
 
     void InstantiateAllPieces()
     {
-        for (int i = 0; i < 15; i++)
-        {
-            Instantiate(_piecePrefab, _board.transform);
-        }
-        Instantiate(_spacePiecePrefab, _board.transform);
+        //for (int i = 0; i < 15; i++)
+        //{
+        //    Instantiate(_piecePrefab, _board.transform);
+        //}
+        //Instantiate(_spacePiecePrefab, _board.transform);
     }
 
     void RandomPositions()
