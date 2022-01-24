@@ -1,15 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 public class MovementPiece : MonoBehaviour
 {
     private bool _canMove;
 
-    public void SetCanMove(bool canMove)
+    private GameManager _gameManager;
+    private void Awake()
     {
-        _canMove = canMove;
+        _gameManager = GetComponent<GameManager>();
     }
 
-   
+
 }
