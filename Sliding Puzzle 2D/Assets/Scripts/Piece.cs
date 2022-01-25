@@ -1,15 +1,12 @@
+using Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Piece : MonoBehaviour
 {
-    [SerializeField]
-    private bool _onRightPlace;
-    [SerializeField]
-    private bool _canMove;
+    // --- Caracteristicas da Peça
     [SerializeField]
     private int _numberPiece;
-
     private SpriteRenderer _currentPieceImage;
     private Text _currentNumberTXT;
     private Color _currentTextColor;
@@ -17,9 +14,8 @@ public class Piece : MonoBehaviour
     [SerializeField]
     private PieceObject _pieceSettings;
 
-    public delegate void HandlePieceMovement();
-
-    public event HandlePieceMovement PieceMoved;
+    [field:SerializeField]
+    public bool OnRightPlace { get; private set; }
 
     private void Awake()
     {
@@ -28,7 +24,7 @@ public class Piece : MonoBehaviour
         _currentTextColor = transform.Find("Canvas").transform.Find("NumberTXT").GetComponent<Text>().color;
     }
 
-    private void OnEnable()
+    private void Start()
     {
         _currentPieceImage.sprite = _pieceSettings.Sprite;
         _currentNumberTXT.font = _pieceSettings.Font;
@@ -44,25 +40,19 @@ public class Piece : MonoBehaviour
 
     void CheckRightPlace()
     {
-        int numberIndexTemp = _numberPiece - 1;
-        if(transform.GetSiblingIndex() == numberIndexTemp)
+        // Se a posição for a mesma que a index da posição da board.
+        Vector3 RightPositionOnBoard = FindObjectOfType<BoardManager>().PositionsBoard[transform.GetSiblingIndex()];
+
+        if (transform.position == RightPositionOnBoard)
         {
-            _onRightPlace = true;
+            OnRightPlace = true;
         }
         else
         {
-            _onRightPlace = false;
+            OnRightPlace = false;
         }
-    }
 
-    public void ChangeCanMove()
-    {
-        _canMove = true;
-    }
 
-    void TradePositionWithSpace()
-    {
-        
     }
 
 

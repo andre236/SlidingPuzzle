@@ -1,22 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpaceScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-
+        StartCoroutine("DelayToStart");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        AllowPieceMove();
-    }
-
-    void AllowPieceMove()
+    public void AllowPieceMove()
     {
         RaycastHit2D rayToUp = Physics2D.Raycast(transform.position, Vector2.up, 2.2f);
 
@@ -28,22 +20,28 @@ public class SpaceScript : MonoBehaviour
 
         if (rayToUp.collider == gameObject.CompareTag("Piece"))
         {
-            rayToUp.collider.gameObject.GetComponent<Piece>().ChangeCanMove();
+            rayToUp.collider.gameObject.GetComponent<MovementPiece>().ChangeCanMove(true);
         }
 
         if (rayToDown.collider == gameObject.CompareTag("Piece"))
         {
-            rayToDown.collider.gameObject.GetComponent<Piece>().ChangeCanMove();
+            rayToDown.collider.gameObject.GetComponent<MovementPiece>().ChangeCanMove(true);
         }
 
         if (rayToLeft.collider == gameObject.CompareTag("Piece"))
         {
-            rayToLeft.collider.gameObject.GetComponent<Piece>().ChangeCanMove();
+            rayToLeft.collider.gameObject.GetComponent<MovementPiece>().ChangeCanMove(true);
         }
 
         if (rayToRight.collider == gameObject.CompareTag("Piece"))
         {
-            rayToRight.collider.gameObject.GetComponent<Piece>().ChangeCanMove();
+            rayToRight.collider.gameObject.GetComponent<MovementPiece>().ChangeCanMove(true);
         }
+    }
+
+    private IEnumerator DelayToStart()
+    {
+        yield return new WaitForSeconds(0.2f);
+        AllowPieceMove();
     }
 }

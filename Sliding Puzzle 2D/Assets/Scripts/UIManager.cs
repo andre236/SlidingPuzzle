@@ -1,52 +1,29 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+namespace Manager
 {
-
-
-
-    public GameObject[] PiecesOnBoard { get; private set; }
-
-
-    void Awake()
+    public class UIManager : MonoBehaviour
     {
-        
-    }
+        private Image _uiWin;
 
-    private void Start()
-    {
-    }
-
-    void InstantiateAllPieces()
-    {
-        //for (int i = 0; i < 15; i++)
-        //{
-        //    Instantiate(_piecePrefab, _board.transform);
-        //}
-        //Instantiate(_spacePiecePrefab, _board.transform);
-    }
-
-    void RandomPositions()
-    {
-        for (int i = 0; i < PiecesOnBoard.Length; i++)
+        void Awake()
         {
-            PiecesOnBoard[i].transform.SetSiblingIndex(Random.Range(0, 15));
+            _uiWin = GameObject.Find("FadeToBlack").GetComponent<Image>();
         }
-    }
 
-    public void OnPieceMoved()
-    {
-        for (int i = 0; i < PiecesOnBoard.Length; i++)
+        private void Start()
         {
-            if (PiecesOnBoard[i].transform.GetSiblingIndex() == i)
+            _uiWin.gameObject.SetActive(false);
+        }
+
+        private void Update()
+        {
+            if (GameManager.Instance.WinGame)
             {
-                Debug.Log("Win!!!");
-            }
-            else
-            {
-                Debug.Log("Continue...");
+                _uiWin.gameObject.SetActive(true);
             }
         }
+
     }
 }
